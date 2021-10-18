@@ -14,7 +14,7 @@ export function useAuth() {
 
 export  function AuthProvider( { children } ) {
 const [ currentUser, setCurrentUser ] = useState();
-//const [ loading, setLoading ] = useState(true);
+const [ loading, setLoading ] = useState(true);
 
 
 //Can do this without firebase, just change these
@@ -41,7 +41,7 @@ useEffect(() => {
     
 const unsubscribe = auth.onAuthStateChanged(user => {
     setCurrentUser(user);
-    //setLoading(false);
+    setLoading(false);
    
 });
 //going to unsubscribe us from the onAuthChanged listener whenever we 
@@ -57,7 +57,7 @@ return unsubscribe;
     }
     return (
     <AuthContext.Provider value={value}>
-        { children}
+        { !loading && children}
     </AuthContext.Provider>
     )
 }
