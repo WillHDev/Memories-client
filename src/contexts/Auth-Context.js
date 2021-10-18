@@ -37,7 +37,7 @@ useEffect(() => {
    // onAuthStateChanged returns a method that when we call the method
     //it will unsubscribe this onAuthStateChanged event
 
-    //currentUse starts out as null and then sets itself
+    //currentUser starts out as null and then sets itself
     
 const unsubscribe = auth.onAuthStateChanged(user => {
     setCurrentUser(user);
