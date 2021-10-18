@@ -1,12 +1,15 @@
 import React from 'react'
 import SignUp from './components/Auth/SignUp'
-//import moduleName from 'react-router-dom';
+import { Container } from 'react-bootstrap'
 
 export default function App() {
     return (
-        <div>
-            <h1>App</h1>
-                 <SignUp />
-        </div>
+    <Container
+    className="d-flex align-items-center justify-content-center"
+    style={{ minHeight: "100vh" }}
+    >
+        <SignUp />
+    </Container>
+       
     )
 }
