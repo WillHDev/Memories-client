@@ -5,7 +5,7 @@ import React, {
 import { auth } from '../firebase/firebase.utils';
 
 const AuthContext = React.createContext();
-
+//Pro tip: see Web dev simplified for breakdown of how a context works
 
 //fn that allows us to use this context
 export function useAuth() {
@@ -14,7 +14,7 @@ export function useAuth() {
 
 export  function AuthProvider( { children } ) {
 const [ currentUser, setCurrentUser ] = useState();
-const [ loading, setLoading ] = useState(true);
+//const [ loading, setLoading ] = useState(true);
 
 
 //Can do this without firebase, just change these
@@ -34,14 +34,14 @@ function logIn(email, password) {
 }
 
 useEffect(() => {
-    //onAuthStateChanged returns a method that when we call the method
+   // onAuthStateChanged returns a method that when we call the method
     //it will unsubscribe this onAuthStateChanged event
 
     //currentUse starts out as null and then sets itself
-    //
+    
 const unsubscribe = auth.onAuthStateChanged(user => {
     setCurrentUser(user);
-    setLoading(false);
+    //setLoading(false);
    
 });
 //going to unsubscribe us from the onAuthChanged listener whenever we 
@@ -52,12 +52,13 @@ return unsubscribe;
 
     const value = {
         currentUser,
-        signUp, 
-         logIn
+         signUp, 
+        //  logIn
     }
     return (
     <AuthContext.Provider value={value}>
-        {!loading && children}
+        { children}
     </AuthContext.Provider>
     )
 }
+//!loading &&
