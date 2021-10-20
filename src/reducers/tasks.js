@@ -1,10 +1,15 @@
-export default (tasks = [], action) => {
+const reducer = (state = [], action) => {
     switch (action.type) {
         case 'FETCH_ALL':
-            return tasks
+            return state
         case 'CREATE':
-            return tasks
-        default:
-             break;
+            return state
+  
     }
+    return state
 }
+
+export default reducer;
+
+//      default:
+//break;
