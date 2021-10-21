@@ -30,7 +30,7 @@ async function handleSubmit (e)  {
         console.log(error);
         setError('Failed to log in')
     }
-setLoading(false);
+//setLoading(false);
 }
 
     return (
