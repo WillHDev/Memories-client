@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { Form, Button, Card, Alert } from 'react-bootstrap';
-import { useAuth } from '../contexts/Auth-Context';
+import { useAuth } from '../../contexts/Auth-Context'
 import { Link, useHistory } from 'react-router-dom';
 //import useAsync from '../../hooks/Use-Async'
 
@@ -12,7 +12,7 @@ const passwordRef = useRef();
 
 //WHY is signup destructured
 //currenUser used for testing from useAuth
-const { logIn } = useAuth();
+const { login } = useAuth();
 const [ error, setError ] = useState();
 const [ loading, setLoading ] = useState(false);
 const history= useHistory();
@@ -24,13 +24,15 @@ async function handleSubmit (e)  {
     try {
         setError('');
         setLoading(true);
-        await logIn(emailRef.current.value, passwordRef.current.value);
+        await login(emailRef.current.value, passwordRef.current.value);
+        setLoading(false);
         history.push("/")
     } catch(error) {
         console.log(error);
         setError('Failed to log in')
+        setLoading(false);
     }
-setLoading(false);
+    setLoading(false);
 }
 
     return (
@@ -54,10 +56,11 @@ setLoading(false);
                         <Button  type="submit" disabled={loading}>Log In</Button>
                     </Form>
                 </Card.Body>
-            </Card>
+        
             <div className="w-100 text-center mt-2">
                 Need an account? <Link to="/signup" >Sign Up</Link>
             </div>
+            </Card>
         </>
     )
 }
