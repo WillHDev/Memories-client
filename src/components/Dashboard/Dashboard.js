@@ -1,15 +1,3 @@
-// import React from 'react'
-// import { Link } from 'react-router-dom'
-
-// export default function Dashboard() {
-//     return (
-//         <div>
-//             <h1>Dashboard</h1>
-//             <Link to="/login">Logout</Link> 
-//         </div>
-//     )
-// }
-
 import React, { useState } from "react"
 import { Card, Button, Alert } from "react-bootstrap"
 import { useAuth } from "../../contexts/Auth-Context"
