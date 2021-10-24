@@ -33,6 +33,11 @@ function login(email, password) {
 
 }
 
+function logout() {
+    //need return bc its a promise
+   return auth.signOut()
+}
+
 useEffect(() => {
    // onAuthStateChanged returns a method that when we call the method
     //it will unsubscribe this onAuthStateChanged event
@@ -53,7 +58,8 @@ return unsubscribe;
     const value = {
         currentUser,
          signup, 
-          login
+          login, 
+          logout
     }
     return (
     <AuthContext.Provider value={value}>
