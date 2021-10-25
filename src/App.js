@@ -5,7 +5,7 @@ import { Container } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import { AuthProvider } from './contexts/Auth-Context'
 import { getTasks } from './actions/tasks'
-//import  Tasks  from './components/Tasks/Tasks'
+import  Tasks  from './components/Tasks/Tasks'
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 //import Dashboard from './components/Dashboard/Dashboard';
 import Form_ from './components/Form/Form_'
@@ -25,7 +25,7 @@ export default function App() {
         <Router>
             <AuthProvider>
                 <Switch> 
-                    <Route exact path="/" component={Form_} />
+                    <Route exact path="/" component={Tasks} />
                    <Route path="/signup" component={SignUp} />
                    <Route path="/login" component={Login} />
                  </Switch>
