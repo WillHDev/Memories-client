@@ -8,7 +8,7 @@ import { getTasks } from './actions/tasks'
 import  Tasks  from './components/Tasks/Tasks'
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Dashboard from './components/Dashboard/Dashboard';
-
+import Form_ from './components/Form/Form_'
 export default function App() {
 
     const dispatch = useDispatch();
@@ -25,7 +25,7 @@ export default function App() {
         <Router>
             <AuthProvider>
                 <Switch> 
-                    <Route exact path="/" component={Dashboard} />
+                    <Route exact path="/" component={Form_} />
                    <Route path="/signup" component={SignUp} />
                    <Route path="/login" component={Login} />
                  </Switch>
