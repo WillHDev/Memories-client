@@ -1,20 +1,19 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { Form, Button, Card, Alert } from 'react-bootstrap'
-
+import { useDispatch } from 'react-redux'
+import { createTask } from '../../actions/tasks'
 
 export default function Form_() {
 
-const descriptionRef = useRef()
-const assignedToRef = useRef()
-const titleRef = useRef()
-const tagsRef = useRef()
-const [ form, setForm ] = useState({ title: '', description: '', assignedTo: '', tags: '' })
+const [ form, setForm ] = useState({ 
+    title: '', description: '', assignedTo: '', tags: '', creator: 'Lionel' })
 const [ loading, setLoading ] = useState(false)
 const [ error, setError ] = useState('')
+const dispatch = useDispatch()
 
 const handleChange = (e) =>{
     const { name, value }  = e.target;
-        
+       
         setForm({ 
             ...form,
             [name]: value
@@ -22,13 +21,13 @@ const handleChange = (e) =>{
          console.log(form);
 }
 
-
-
+//assignedTo: form.assignedTo.split(" ")
+//TODO add/subtract seterror and loading
     const handleSubmit = (e) => {
         e.preventDefault()
         setError('')
         setLoading(true)
-        console.log(form)
+        dispatch(createTask(form))
         setLoading(false)
     }
 
