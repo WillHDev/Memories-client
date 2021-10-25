@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import SignUp from './components/Auth/SignUp'
 import Login from './components/Auth/Login'
 import { Container } from 'react-bootstrap'
@@ -8,9 +8,9 @@ import { getTasks } from './actions/tasks'
 import  Tasks  from './components/Tasks/Tasks'
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 //import Dashboard from './components/Dashboard/Dashboard';
-import Form_ from './components/Form/Form_'
+import Form from './components/Form/Form_'
 export default function App() {
-
+    const [ currentId, setCurrentId ] = useState(null)
     const dispatch = useDispatch();
 
     useEffect( () => {
@@ -25,7 +25,17 @@ export default function App() {
         <Router>
             <AuthProvider>
                 <Switch> 
-                    <Route exact path="/" component={Tasks} />
+                    <Route exact path="/" 
+                    render={(props) => 
+                    <Tasks 
+                    currentId={currentId} 
+                    setCurrentId={setCurrentId}
+                     {...props} />}
+                         />
+                    <Route path="/newTask"  
+                            currentId={currentId} 
+                            setCurrentId={setCurrentId}
+                                component={Form} />
                    <Route path="/signup" component={SignUp} />
                    <Route path="/login" component={Login} />
                  </Switch>

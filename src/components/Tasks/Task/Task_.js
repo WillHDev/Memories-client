@@ -1,9 +1,8 @@
 import React from 'react'
-import { Card } from 'react-bootstrap'
+import { Card, Button } from 'react-bootstrap'
 
 
-
-export default function Task_({ task }) {
+export default function Task_({ task, setCurrentId }) {
 
 //   const task = {
   
@@ -23,7 +22,7 @@ export default function Task_({ task }) {
                {task.description}
             </Card.Text>
             <Card.Subtitle className="mb-2 text-muted">{task.assignedTo}</Card.Subtitle>
-              <Card.Link href="#">Edit Task</Card.Link>
+              <Button onClick={() => setCurrentId(task._id)}>Edit</Button>
               <Card.Link href="#">Delete</Card.Link>
           </Card.Body>
         </Card>

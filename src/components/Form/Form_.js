@@ -3,7 +3,7 @@ import { Form, Button, Card, Alert } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import { createTask } from '../../actions/tasks'
 
-export default function Form_() {
+export default function Form_({ currentId, setCurrentId }) {
 
 const [ form, setForm ] = useState({ 
     title: '', description: '', assignedTo: '', tags: '', creator: 'Lionel' })
