@@ -3,17 +3,17 @@ import { Card } from 'react-bootstrap'
 
 
 
-export default function Task_(  ) {
+export default function Task_({ task }) {
 
-  const task = {
+//   const task = {
   
-    title: "Enhance Mobile Features",
-    description: "Customer has requested we add a chat feature to the mobile website ",
-    tags: "Elliot DDS website",
-    assignedTo: "Jim and Dave",
-    creator: "Bradley"
+//     title: "Enhance Mobile Features",
+//     description: "Customer has requested we add a chat feature to the mobile website ",
+//     tags: "Elliot DDS website",
+//     assignedTo: "Jim and Dave",
+//     creator: "Bradley"
 
-}
+// }
 
     return (
         <Card style={{ width: '18rem' }}>

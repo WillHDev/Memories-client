@@ -1,15 +1,24 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
-import Task_ from './Task/Task_'
+import Task from './Task/Task_'
+import { Container, Row, Col } from 'react-bootstrap'
 
 export default function Tasks() {
     const tasks = useSelector( (state) => state.tasks);
     console.log(tasks)
+   if ( !tasks ){
+        return <h3>Loading...</h3>
+   } 
     return (
-        <div>
-            <h1>Tasks</h1>
-            <Task_ />
-            <Task_ />
-        </div>
+        <Container>
+                         <h1>Tasks</h1>
+           <Row>
+           {tasks.map( task => (
+               <Col key={task._id}> <Task task={task}  /></Col>
+           ))}
+</Row>
+
+        </Container>
+           
     )
 }

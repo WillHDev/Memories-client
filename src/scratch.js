@@ -19,3 +19,13 @@
   //3)
 
   ///////
+
+//   const col1 = [],col2 = [];
+
+// this.props.result.forEach((item, i) => {
+//     if(i%===0){
+//         col1.push(Task_);
+//     }else{
+//         col2.push(myRow);
+//     }
+// }
