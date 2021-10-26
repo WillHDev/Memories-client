@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Form, Button, Card, Alert } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
-import { createTask } from '../../actions/tasks'
+import { createTask, updateTask } from '../../actions/tasks'
 
 export default function Form_({ currentId, setCurrentId }) {
 
@@ -26,9 +26,17 @@ const handleChange = (e) =>{
     const handleSubmit = (e) => {
         e.preventDefault()
         setError('')
-        setLoading(true)
-        dispatch(createTask(form))
-        setLoading(false)
+        
+        if(currentId){
+            setLoading(true)
+            dispatch(updateTask(currentId, form))
+            setLoading(false)
+        } else {
+            setLoading(true)
+            dispatch(createTask(form))
+            setLoading(false)
+        }
+
     }
 
   

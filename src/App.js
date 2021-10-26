@@ -32,10 +32,12 @@ export default function App() {
                     setCurrentId={setCurrentId}
                      {...props} />}
                          />
-                    <Route path="/newTask"  
-                            currentId={currentId} 
-                            setCurrentId={setCurrentId}
-                                component={Form} />
+                    <Route path="/newTask"
+                                render={(props) => 
+                                    <Form 
+                                    currentId={currentId} 
+                                    setCurrentId={setCurrentId}
+                                     {...props} />}/>
                    <Route path="/signup" component={SignUp} />
                    <Route path="/login" component={Login} />
                  </Switch>

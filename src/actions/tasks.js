@@ -19,3 +19,14 @@ export const createTask = ( task ) => async (dispatch) => {
         console.log(error)
     }
 }
+
+export const updateTask = ( id, task ) => async (dispatch) => {
+    try {
+        //data is the part of the response we need
+        const { data } = await api.updateTask( id, task );
+        
+        dispatch({ type: 'UPDATE', payload: data })
+    } catch (error) {
+        console.log(error)
+    }
+}

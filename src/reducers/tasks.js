@@ -1,13 +1,16 @@
-
-const reducer = (state = [], action) => {
+//state interchangeable with tasks
+const reducer = (tasks = [], action) => {
     switch (action.type) {
         case 'FETCH_ALL':
             return action.payload
         case 'CREATE':
-            //return state
-            return [ ...state, action.payload ]
+            //return tasks
+            return [ ...tasks, action.payload ]
+        case 'UPDATE':
+            //return tasks
+            return tasks.map((task) =>  task._id === action.payload._id ? action.payload : task )
         default: 
-             return state
+             return tasks
             
   
     }
