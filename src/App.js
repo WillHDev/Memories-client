@@ -13,9 +13,8 @@ export default function App() {
     const [ currentId, setCurrentId ] = useState(null)
     const dispatch = useDispatch();
 
-    useEffect( () => {
-        dispatch(getTasks());
-    }, [dispatch]);
+    useEffect( () => dispatch(getTasks())
+    , [dispatch]);
     
     return (
         <Container
@@ -25,13 +24,10 @@ export default function App() {
         <Router>
             <AuthProvider>
                 <Switch> 
-                    <Route exact path="/" 
-                    render={(props) => 
-                    <Tasks 
-                    currentId={currentId} 
-                    setCurrentId={setCurrentId}
-                     {...props} />}
-                         />
+                    <Route exact path="/" >
+                             <Tasks  currentId={currentId} 
+                    setCurrentId={setCurrentId} />
+                         </Route>
                     <Route path="/newTask"
                                 render={(props) => 
                                     <Form 

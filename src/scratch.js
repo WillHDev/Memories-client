@@ -16,7 +16,14 @@
 //Q and A: 1)  how to get assignedto into an array
 //2)     const [ error, setError ] = useState('')
   //  const [ loading, setLoading ] = useState(false)
-  //3)
+ 
+ 
+ 
+  //3)  useEffect( () => {
+//     setCurrentId(1)
+//     console.log(currentId)
+// }, [])
+// console.log(currentId)
 
   ///////
 

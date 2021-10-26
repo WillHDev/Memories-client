@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import Task from './Task/Task_'
 import { Container, Row, Col } from 'react-bootstrap'
 
 export default function Tasks({ currentId, setCurrentId}) {
+
+ 
     const tasks = useSelector( (state) => state.tasks);
-    console.log(tasks)
+   // console.log(setCurrentId)
    if ( !tasks ){
         return <h3>Loading...</h3>
    } 

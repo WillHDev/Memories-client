@@ -1,25 +1,35 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Form, Button, Card, Alert } from 'react-bootstrap'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { createTask, updateTask } from '../../actions/tasks'
 
 export default function Form_({ currentId, setCurrentId }) {
 
-const [ form, setForm ] = useState({ 
-    title: '', description: '', assignedTo: '', tags: '', creator: 'Lionel' })
-const [ loading, setLoading ] = useState(false)
-const [ error, setError ] = useState('')
-const dispatch = useDispatch()
+    const task = useSelector( 
+        (state) => currentId ? state.tasks.find((t) => t._id === currentId ) : null 
+        );
+    const [ form, setForm ] = useState({ 
+        title: '', description: '', assignedTo: '', tags: '', creator: 'Lionel' })
+    const [ loading, setLoading ] = useState(false)
+    const [ error, setError ] = useState('')
+    const dispatch = useDispatch()
 
-const handleChange = (e) =>{
-    const { name, value }  = e.target;
-       
-        setForm({ 
-            ...form,
-            [name]: value
-         });
-         console.log(form);
-}
+    useEffect(() => {
+        if(task) {
+            setForm({ task })
+        }
+    }, [task])
+    console.log(form)
+
+    const handleChange = (e) =>{
+        const { name, value }  = e.target;
+        
+            setForm({ 
+                ...form,
+                [name]: value
+            });
+            console.log(form);
+    }
 
 //assignedTo: form.assignedTo.split(" ")
 //TODO add/subtract seterror and loading
