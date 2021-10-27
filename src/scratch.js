@@ -1,5 +1,4 @@
-// lookup how to get into array for form input
-
+// how to pass an id, look at espresso
 // {
 //     "title": "Jones",
 //     "description": "desc",

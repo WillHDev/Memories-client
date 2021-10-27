@@ -54,7 +54,7 @@ export default function Form_({ currentId, setCurrentId }) {
         <>
         <Card>
             <Card.Body>
-                <h2 className="text-center mb-4">New Task</h2>
+                <h2 className="text-center mb-4">{`${currentId ? 'Edit' : 'New'}`} Task</h2>
            { error && <Alert variant="danger">{error}</Alert> }
                 <Form onSubmit={handleSubmit}>
                 <Form.Group id="title">
